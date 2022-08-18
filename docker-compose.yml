@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  titiler:
+    image: 'developmentseed/titiler:latest'  
+    hostname: titiler
+    ports:
+      - '8000:8000'
+    restart: on-failure
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      - PORT=8000
+      - WORKERS_PER_CORE=1
+
